@@ -1,5 +1,6 @@
 FROM docker:latest
 MAINTAINER Daryll Strauss <daryll.strauss@gmail.com>
 
-RUN apk add --no-cache py-pip
-RUN pip install docker-compose fabric
+RUN apk add --no-cache --update py-pip gcc make \
+    musl-dev python-dev libffi-dev openssl-dev && \
+    pip install docker-compose fabric
